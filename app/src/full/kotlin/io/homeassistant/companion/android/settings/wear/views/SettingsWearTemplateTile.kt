@@ -49,7 +49,7 @@ fun SettingsWearTemplateTile(
         modifier = modifier,
         topBar = {
             SettingsWearTopAppBar(
-                title = { Text(stringResource(commonR.string.template_tile)) },
+                title = stringResource(commonR.string.template_tile),
                 onBackClicked = onBackClicked,
                 docsLink = WEAR_DOCS_LINK,
             )

@@ -85,7 +85,7 @@ fun LoadWearFavoritesSettings(
         },
         topBar = {
             SettingsWearTopAppBar(
-                title = { Text(stringResource(commonR.string.wear_favorite_entities)) },
+                title = stringResource(commonR.string.wear_favorite_entities),
                 onBackClicked = onBackClicked,
                 docsLink = WEAR_DOCS_LINK,
             )

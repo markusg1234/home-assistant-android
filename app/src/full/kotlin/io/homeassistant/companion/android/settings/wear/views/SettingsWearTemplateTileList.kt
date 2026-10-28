@@ -1,19 +1,14 @@
 package io.homeassistant.companion.android.settings.wear.views
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import io.github.timoptr.mdiicons.Mdi
@@ -21,6 +16,8 @@ import io.github.timoptr.mdiicons.generated.TextBox
 import io.homeassistant.companion.android.common.R as commonR
 import io.homeassistant.companion.android.common.data.prefs.impl.entities.TemplateTileConfig
 import io.homeassistant.companion.android.settings.views.SettingsRow
+import io.homeassistant.companion.android.settings.views.SettingsSubheader
+import io.homeassistant.companion.android.settings.views.SettingsSubheaderDefaults
 import io.homeassistant.companion.android.util.safeBottomPaddingValues
 
 @Composable
@@ -34,7 +31,7 @@ fun SettingsWearTemplateTileList(
         modifier = modifier,
         topBar = {
             SettingsWearTopAppBar(
-                title = { Text(stringResource(commonR.string.template_tiles)) },
+                title = stringResource(commonR.string.template_tiles),
                 onBackClicked = onBackClicked,
                 docsLink = WEAR_DOCS_LINK,
             )
@@ -53,19 +50,10 @@ fun SettingsWearTemplateTileList(
                         .padding(all = 16.dp),
                 )
             } else {
-                Row(
-                    modifier = Modifier
-                        .height(48.dp)
-                        .padding(start = 72.dp, end = 16.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        text = stringResource(id = commonR.string.template_tile_configure),
-                        style = MaterialTheme.typography.body2,
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colors.primary,
-                    )
-                }
+                SettingsSubheader(
+                    text = stringResource(commonR.string.template_tile_configure),
+                    textPadding = SettingsSubheaderDefaults.TextWithIconRowPadding,
+                )
 
                 var index = 1
                 for (templateTileEntry in templateTiles.entries) {

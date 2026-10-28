@@ -58,12 +58,7 @@ internal fun SettingsWearOnboardingViewContent(
     Scaffold(
         topBar = {
             SettingsWearTopAppBar(
-                title = {
-                    Text(
-                        stringResource(commonR.string.wear_os_settings_title),
-                        fontWeight = FontWeight.Bold,
-                    )
-                },
+                title = stringResource(commonR.string.wear_os_settings_title),
                 onBackClicked = onBackClicked,
                 docsLink = WEAR_DOCS_LINK,
             )
